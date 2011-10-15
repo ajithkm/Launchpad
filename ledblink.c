@@ -1,15 +1,18 @@
 #include <msp430.h>
-main()
+void delay()
 {
 	int i;
+	for(i = 0;i < 32000 ; i++)
+		{}
+}
+
+main()
+{
+	
 	P1DIR = 1;
 	while(1)
 	{
-		P1OUT = 1;
-		for(i = 0;i < 32000 ; i++)
-			{}
-		P1OUT = 0;
-		for(i = 0;i < 32000 ; i++)
-			{}
+		delay();
+		P1OUT ^= 1;
 	}
 }
