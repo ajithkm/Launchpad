@@ -1,4 +1,10 @@
 #include<msp430.h>
+void delay()
+{
+	int i;
+	for( i = 0 ; i < 32000 ; i++)
+	{}
+} 
 main()
 {
 	P1DIR =0x41;
@@ -8,6 +14,7 @@ main()
 		while( (P1IN >> 3 & 1) == 0 )
 		{
 			P1OUT ^= 0x41;
+			delay();
 		}
 	}
 }
